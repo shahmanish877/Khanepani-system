@@ -53,7 +53,8 @@ if(mysqli_num_rows($result) > 0)
 							<th>Discount</th>
 							<th>Total Amount</th>
 							<th>Paid Date</th>
-							<th>Return Due</th>
+							<th>To Return</th>		
+							<th>New Dues</th>
 							<th>Remarks</th>						</tr>';
 	while($d = mysqli_fetch_array($result))
 	{
@@ -80,6 +81,7 @@ if(mysqli_num_rows($result) > 0)
 				<td>'.$d['grand_total'].' </td>
 				<td>'.$d['paid_date'].' </td>
 				<td>'.$d['dues_return'].' </td>
+				<td>'.$d['new_dues'].' </td>			
 				<td>'.$d['payment_remark'].' </td>
 				
 			
