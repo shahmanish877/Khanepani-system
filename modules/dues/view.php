@@ -67,7 +67,10 @@ global $total_pages;
 				<a href="?page=dues_update&id=<?php echo $d['id']; ?>">
 					Update
 				</a> 
-				
+				|
+				<a href="?page=dues&del_id=<?php echo $d['id']; ?>">
+					Delete
+				</a> 
 			</td>
 		</tr>
 	<?php 

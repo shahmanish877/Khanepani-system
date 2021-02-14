@@ -56,7 +56,10 @@ if(mysqli_num_rows($result) > 0)
 					<a href="?page=dues_update&id='.$d['id'].'">
 						Update
 					</a> 
-					
+					|
+					<a href="?page=dues&del_id="'.$id.'>
+					Delete
+					</a> 
 				</td>
 
 			</tr>

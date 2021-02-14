@@ -9,7 +9,7 @@
 					INNER JOIN client
 					ON client_dues.cid=client.id WHERE client_dues.id = ".$d;
 
-			$sql = "SELECT * FROM client_dues where cid=".$d;
+			// $sql = "SELECT * FROM client_dues where cid=".$d;
 
 			$rs = mysqli_query($con, $sql);
 			$row = mysqli_fetch_assoc($rs);
@@ -126,7 +126,7 @@
 			global $con;
 			$sql = "DELETE FROM client_dues WHERE id = ".$d;
 		
-
+			
 			if(mysqli_query($con, $sql)){
 				$_SESSION['success_msg'] = "Successfully deleted";
 				echo "success";

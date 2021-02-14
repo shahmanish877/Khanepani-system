@@ -25,8 +25,8 @@ if(isset($_GET['history_id']))
 			<th>Total Amount</th>
 			<th>Paid Date</th>
 			<th>Remarks</th>
-			<th class="no_print">Action</th>
-		</tr>
+<!-- 			<th class="no_print">Action</th>
+ -->		</tr>
 
 		<?php
 		foreach($data as $d)
@@ -44,12 +44,12 @@ if(isset($_GET['history_id']))
 				<td> <?php echo $d['paid_date']; ?> </td>
 				<td> <?php echo $d['remark']; ?> </td>
 				
-				<td class="no_print">
+				<!-- <td class="no_print">
 					<a href="?page=payment_form&new=1&edit_id=<?php echo $d['pid']; ?>">
 						Update
 					</a> 
 					
-				</td>
+				</td> -->
 			</tr>
 		<?php 
 		}

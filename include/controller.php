@@ -343,7 +343,6 @@ class Controller
 
 
 
-
 				default:
 					include_once("modules/client/view.php");
 					break;

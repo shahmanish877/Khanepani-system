@@ -102,11 +102,11 @@
 			$new_dues = $d['new_dues'];
 
 			if($d['dues_clear']=='yes'){
-				$gtotal = $d['gtotal1'];
+				$gtotal = $d['gtotal1'] + $remaining_return ;
 				$dues = $d['client_dues'];
 
 			}else  if($d['dues_clear']=='no'){
-				$gtotal = $total;
+				$gtotal = $total + $remaining_return;
 				$dues = 0;
 			}
 
@@ -187,10 +187,34 @@
 		function delete($d)
 		{
 			global $con;
+
+			$payment_details = $this->getSingle($d);
+
+			$read_date = $payment_details['read_date'];  
+			$str_arr = preg_split ("/\,/", $read_date);  
+			// print_r($str_arr); 
+
+
 			$sql = "DELETE FROM payment WHERE pid = ".$d;
-			
+
+
+
 			if(mysqli_query($con, $sql)){
+					
+				//setting meter status to unpaid after delete
+
+				foreach ($str_arr as $key => $read_date) {
+					$meter_unpaid_update = "UPDATE meter SET status='unpaid' WHERE read_date = '".trim($read_date)."' AND cid=".$payment_details['cid'];
+
+					mysqli_query($con, $meter_unpaid_update);
+				}
+
+				
+
+				
 				$_SESSION['success_msg'] = "Payment successfully deleted";
+				
+
 				
 			}else{
                 $_SESSION['error_msg'] = "Error : " . $con->error ;

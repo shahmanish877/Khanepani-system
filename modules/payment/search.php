@@ -51,11 +51,12 @@ if(mysqli_num_rows($result) > 0)
 							<th>Amount</th>
 							<th>Fine/Rebate</th>
 							<th>Discount</th>
-							<th>Total Amount</th>
+							<th>Total Amount  (inc. Return)</th>
 							<th>Paid Date</th>
 							<th>To Return</th>		
 							<th>New Dues</th>
-							<th>Remarks</th>						</tr>';
+							<th>Remarks</th>
+							<th>Action</th>						</tr>';
 	while($d = mysqli_fetch_array($result))
 	{
 		$id = $d['pid'];
@@ -83,6 +84,11 @@ if(mysqli_num_rows($result) > 0)
 				<td>'.$d['dues_return'].' </td>
 				<td>'.$d['new_dues'].' </td>			
 				<td>'.$d['payment_remark'].' </td>
+				<td> 
+					<a onclick="return confirm(\'Do you want to delete?\');" href="?page=payment&del_id='.$d['pid'].'">
+						Delete
+					</a>
+				</td>
 				
 			
 

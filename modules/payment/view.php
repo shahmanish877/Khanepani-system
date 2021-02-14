@@ -42,11 +42,12 @@ global $total_pages;
 		<th>Amount</th>
 		<th>Fine/Rebate</th>
 		<th>Discount</th>
-		<th>Total Amount</th>
+		<th>Total Amount (inc. Return)</th>
 		<th>Paid Date</th>
 		<th>To Return</th>
 		<th>New Dues</th>
 		<th>Remarks</th>
+		<th>Action</th>
 	</tr>
 
 	<?php
@@ -76,16 +77,16 @@ global $total_pages;
 			<td> <?php echo $d['new_dues']; ?> </td>
 			<td> <?php echo $d['payment_remark']; ?> </td>
 			
-			<!-- <td>
-				<a href="?page=payment_form&new=1&edit_id=<?php echo $d['pid']; ?>">
+			<td>
+				<!-- <a href="?page=payment_form&new=1&edit_id=<?php echo $d['pid']; ?>">
 					Update
 				</a> 
-				|
+				| -->
 				<a onclick="return confirm('Do you want to delete?');" href="?page=payment&del_id=<?php echo $d['pid']; ?>">
 					Delete
 				</a>
 				
-			</td> -->
+			</td>
 		</tr>
 	<?php 
 	}
