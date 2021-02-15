@@ -42,7 +42,7 @@ global $total_pages;
 		<th>Amount</th>
 		<th>Fine/Rebate</th>
 		<th>Discount</th>
-		<th>Total Amount (inc. Return)</th>
+		<th>Total Amount</th>
 		<th>Paid Date</th>
 		<th>To Return</th>
 		<th>New Dues</th>

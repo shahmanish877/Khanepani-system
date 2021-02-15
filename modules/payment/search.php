@@ -51,7 +51,7 @@ if(mysqli_num_rows($result) > 0)
 							<th>Amount</th>
 							<th>Fine/Rebate</th>
 							<th>Discount</th>
-							<th>Total Amount  (inc. Return)</th>
+							<th>Total Amount </th>
 							<th>Paid Date</th>
 							<th>To Return</th>		
 							<th>New Dues</th>

@@ -330,8 +330,15 @@ function ajax_function(){
                 $("#count").val(response.count);
 
                 $("#reading_from").val(response.reading_from);
-                $("#client_dues").val(response.client_dues);
-                $("#client_dues1").val(response.client_dues);
+                
+
+                if(response.client_dues==null){
+                	$("#client_dues").val(0);
+                	$("#client_dues1").val(0);
+                }else{
+                	$("#client_dues").val(response.client_dues);
+                	$("#client_dues1").val(response.client_dues);
+                }
             } else {
                 alert(status.message);
             }

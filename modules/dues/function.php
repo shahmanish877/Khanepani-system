@@ -103,6 +103,7 @@
 			$cid = $d['cid'];
 			$amount = $d['amount'];
 			$dues_date = $d['dues_date'];
+			$status = $d['status'];
 			
 
 			

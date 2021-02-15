@@ -9,7 +9,7 @@ global $total_pages;
 
 ?>
 
-
+<a href="?page=dues_form" class="btn">Add Dues</a>
 <input type="text" class="form-control search" name="search" id="search" placeholder="Search with name">
 
 <?php 

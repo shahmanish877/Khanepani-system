@@ -28,7 +28,20 @@ if(isset($_GET['id']))
 				<label>Client Name : </label>
 				<input type="text" class="form-controlled" value="<?php echo $s['name']; ?>" name="cust_name" disabled/>
 			
-	
+		
+				<label>Status (Paid or Unpaid) : </label>
+				<select name="status" class="form-controlled" >
+					<?php 
+						if ($s['status']=='paid') {							
+							echo '<option value="paid" selected>Paid</option>
+							<option value="unpaid">Unpaid</option>';
+						}
+						else if ($s['status']=='unpaid') {							
+							echo '<option value="paid" >Paid</option>
+							<option value="unpaid" selected>Unpaid</option>';
+						}
+					?>
+				<select>
 			
 				<label>Dues Amount* : </label>
 				<input type="text" class="form-controlled" value="<?php echo $s['amount']; ?>" name="amount" required/>

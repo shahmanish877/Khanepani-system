@@ -156,7 +156,7 @@
 
 
 				<tr>
-					<th>Total Amount  (inc. Return): </th>
+					<th>Total Amount: </th>
 					<td> <b> <?php echo $d['grand_total']; ?> </b> </td>
 				</tr>
 
@@ -289,7 +289,7 @@
 				</tr>
 
 				<tr>
-					<th>Total Amount  (inc. Return): </th>
+					<th>Total Amount: </th>
 					<td> <b> <?php echo $d['grand_total']; ?> </b> </td>
 				</tr>
 
