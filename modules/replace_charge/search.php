@@ -72,7 +72,10 @@ if(mysqli_num_rows($result) > 0)
 					<a href="?page=replace_charge_form&edit_id='.$d['id'].'">
 						Update
 					</a> 
-					
+					|
+					<a href="?page=replace_charge&del_id='.$d['id'].'" onclick="return confirm(\'Do you really want to delete?\')">
+						Delete
+					</a> 
 				</td>
 
 			</tr>

@@ -57,9 +57,9 @@ if(mysqli_num_rows($result) > 0)
 						Update
 					</a> 
 					|
-					<a href="?page=dues&del_id="'.$id.'>
+					<a href="?page=dues&del_id='.$id.'" onclick="return confirm(\'Do you want to delete?\');">
 					Delete
-					</a> 
+				</a> 
 				</td>
 
 			</tr>

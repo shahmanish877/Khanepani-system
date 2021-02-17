@@ -47,7 +47,7 @@ if(mysqli_num_rows($result) > 0)
 							<th>Grandfather / Husband Name</th>
 							<th>Join Date</th>
 							<th>Remarks</th>
-							<th>Action</th>
+							<th width="10%">Action</th>
 						</tr>';
 	while($d = mysqli_fetch_array($result))
 	{
@@ -72,7 +72,10 @@ if(mysqli_num_rows($result) > 0)
 				<td>
 					<a href="?page=client_form&edit_id='.$d['id'].'">
 						Update
-					</a> 
+					</a> |
+				<a href="?page=client&del_id='.$d['id'].'" onclick="return confirm(\'Do you really want to delete?\')">
+					Delete
+				</a>
 					
 				</td>
 

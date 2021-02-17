@@ -27,6 +27,9 @@ global $total_pages;
 			unset($_SESSION['success_msg']);
 			unset($_SESSION['error_msg']);
 		}
+		else if($_GET['op']=='delete'){
+			echo "<h4 class='danger'> Successfully deleted </h4>";			
+		}
 	}
  ?>
 
@@ -63,6 +66,10 @@ global $total_pages;
 			<td>
 				<a href="?page=ownership_transfer_form&edit_id=<?php echo $d['id']; ?>&cid=<?php echo $d['cid']; ?>">
 					Update
+				</a> 
+				|
+				<a href="?page=ownership_transfer&del_id=<?php echo $d['id']; ?>" onclick="return confirm('Do you really want to delete?')">
+					Delete
 				</a> 
 				
 			</td>

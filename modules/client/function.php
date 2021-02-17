@@ -131,6 +131,12 @@
 			global $con;
 			$sql = "DELETE FROM client WHERE id = ".$d;
 
+			if(mysqli_query($con, $sql)){
+				$_SESSION['success_msg'] = "Client successfully deleted";
+				
+			}else{
+                $_SESSION['error_msg'] = "Error : " . $con->error ;
+			}
 
 		}
 	}

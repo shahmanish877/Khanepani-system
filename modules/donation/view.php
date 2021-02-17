@@ -28,6 +28,9 @@ global $total_pages;
 			unset($_SESSION['success_msg']);
 			unset($_SESSION['error_msg']);
 		}
+		else if($_GET['op']=='delete'){
+			echo "<h4 class='danger'> Donation successfully deleted </h4>";			
+		}
 	}
  ?>
 
@@ -59,7 +62,10 @@ global $total_pages;
 				<a href="?page=donation_form&edit_id=<?php echo $d['id']; ?>">
 					Update
 				</a> 
-				
+				|
+				<a href="?page=donation&del_id=<?php echo $d['id']; ?>" onclick="return confirm('Do you really want to delete?')">
+					Delete
+				</a> 
 			</td>
 		</tr>
 	<?php 

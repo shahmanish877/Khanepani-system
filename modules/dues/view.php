@@ -26,6 +26,9 @@ global $total_pages;
 			unset($_SESSION['success_msg']);
 			unset($_SESSION['error_msg']);
 		}
+		else if($_GET['op']=='delete'){
+			echo "<h4 class='danger'> Client successfully deleted </h4>";			
+		}
 	}
  ?>
 
@@ -68,7 +71,7 @@ global $total_pages;
 					Update
 				</a> 
 				|
-				<a href="?page=dues&del_id=<?php echo $d['id']; ?>">
+				<a href="?page=dues&del_id=<?php echo $d['id']; ?>" onclick="return confirm('Do you want to delete?');">
 					Delete
 				</a> 
 			</td>

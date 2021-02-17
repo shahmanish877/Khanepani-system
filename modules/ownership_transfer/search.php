@@ -72,7 +72,10 @@ if(mysqli_num_rows($result) > 0)
 					<a href="?page=ownership_transfer_form&edit_id='.$d['id'].'&cid='.$d['cid'].'">
 						Update
 					</a> 
-					
+					|
+					<a href="?page=ownership_transfer&del_id='.$d['id'].'" onclick="return confirm(\'Do you really want to delete?\')">
+						Delete
+					</a> 
 				</td>
 
 			</tr>

@@ -48,7 +48,7 @@ global $total_pages;
 		<th>Grandfather / Husband Name</th>
 		<th>Join Date</th>
 		<th>Remarks</th>
-		<th>Action</th>
+		<th width="10%">Action</th>
 	</tr>
 
 	<?php
@@ -73,6 +73,10 @@ global $total_pages;
 			<td>
 				<a href="?page=client_form&edit_id=<?php echo $d['id']; ?>">
 					Update
+				</a> 
+				|
+				<a href="?page=client&del_id=<?php echo $d['id']; ?>" onclick="return confirm('Do you really want to delete?')">
+					Delete
 				</a> 
 				
 			</td>

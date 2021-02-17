@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2021 at 10:39 AM
+-- Generation Time: Feb 17, 2021 at 07:42 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.14
 
@@ -47,9 +47,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`id`, `name`, `phone`, `joinned`, `gharnum`, `area`, `meter`, `address`, `father`, `mother`, `grandfather`, `remark`) VALUES
-(1, 'Nawaraj Ghimire', 9842168566, '2068-04-03', '-', '0', '1', 'kalpat', '-', '-', '-', '-'),
-(2, 'Dilli Shrestha', 9815303981, '2072-01-02', '-', '0', '2', 'Bagaichha tol', 'khadga bahadur shrestha', '-', '-', '-'),
-(3, 'Hiramani Magar', 9804007723, '2072-02-02', '-', '0', '3', 'Bagaichha tol', 'chandra bahadur magar', '-', '-', '-'),
+(3, 'Ram Bahadur', 9804007723, '2072-02-02', '-', '0', '3', 'Bagaichha tol', 'chandra bahadur magar', '-', '-', '-'),
 (4, 'Gokul Ghimire', 9842056969, '2073-03-04', '-', '0', '4', 'school dada', 'khyamraj ghimire', '---', '-', '-'),
 (5, 'Mamata chahar', 9829392061, '2074-05-02', '-', '0', '5', 'ghopali tol', 'juwalsingh darji', '-', '-', '-'),
 (6, 'Sarita subba', 9842208855, '2072-01-02', '-', '0', '6', 'school dada', '-', '-', '-', '-'),
@@ -490,10 +488,10 @@ INSERT INTO `client` (`id`, `name`, `phone`, `joinned`, `gharnum`, `area`, `mete
 (462, 'yogendra tamang', 9804569815, '2072-04-13', '-', '2/322', '2323', 'sital chowk', '-', '-', '-', '-'),
 (463, 'ambika basnet', 9816335057, '2072-04-15', '-', '2/325', '2326', 'sital chowk', '-', '-', '-', '-'),
 (464, 'hasta shrestha', 9852064129, '2072-04-19', '-', '2/337', '2338', 'sital chowk', '-', '-', '-', '-'),
-(465, 'hari rai', 9804236985, '2072-04-30', '-', '2/338', '2339', 'sital chowk', '-', '-', '-', '-');
-INSERT INTO `client` (`id`, `name`, `phone`, `joinned`, `gharnum`, `area`, `meter`, `address`, `father`, `mother`, `grandfather`, `remark`) VALUES
+(465, 'hari rai', 9804236985, '2072-04-30', '-', '2/338', '2339', 'sital chowk', '-', '-', '-', '-'),
 (466, 'binod rana`', 9807399670, '2072-04-20', '-', '2/361', '2362', 'sital chowk', '-', '-', '-', '-'),
-(467, 'sunil rai', 9804253695, '2072-04-28', '-', '2/378', '2379', 'sital chowk', '-', '-', '-', '-'),
+(467, 'sunil rai', 9804253695, '2072-04-28', '-', '2/378', '2379', 'sital chowk', '-', '-', '-', '-');
+INSERT INTO `client` (`id`, `name`, `phone`, `joinned`, `gharnum`, `area`, `meter`, `address`, `father`, `mother`, `grandfather`, `remark`) VALUES
 (468, 'ram babu sarki', 9815362898, '2072-04-08', '-', '2/380', '2381', 'sital chowk', '-', '-', '-', '-'),
 (469, 'januka shrestha', 9825369856, '2072-04-21', '-', '3/57', '3058', 'saraswoti chowk', '--', '-', '-', '-'),
 (470, 'bharatmani shrestha', 9804263598, '2072-04-20', '-', '3/67', '3066', 'saraswoti chowk', '-', '-', '-', '-'),
@@ -640,8 +638,6 @@ INSERT INTO `client_dues` (`id`, `cid`, `amount`, `status`, `dues_date`) VALUES
 (16, 3, '85.00', 'unpaid', '2077-10-21'),
 (17, 5, '350.00', 'unpaid', '2077-10-21'),
 (18, 5, '245.00', 'unpaid', '2077-10-21'),
-(19, 10, '255.00', 'paid', '2077-10-21'),
-(24, 10, '255.16', 'unpaid', '2077-11-03'),
 (25, 52, '33.20', 'unpaid', '2077-11-03'),
 (26, 7, '9595.00', 'unpaid', '2077-11-03');
 
@@ -678,8 +674,6 @@ CREATE TABLE `meter` (
 --
 
 INSERT INTO `meter` (`mid`, `cid`, `reading`, `read_date`, `status`) VALUES
-(41, 1, '50', '2077-10-02', 'unpaid'),
-(42, 2, '500', '2077-10-06', 'paid'),
 (43, 3, '160', '2077-10-01', 'paid'),
 (44, 3, '600', '2077-11-06', 'unpaid'),
 (45, 3, '600', '2077-08-02', 'unpaid'),
@@ -708,13 +702,6 @@ CREATE TABLE `new_charge` (
   `misc` int(11) NOT NULL DEFAULT 0,
   `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `new_charge`
---
-
-INSERT INTO `new_charge` (`id`, `cid`, `paid_date`, `meter_charge`, `membership`, `filter`, `misc`, `total`) VALUES
-(4, 3, '2077-10-13', 7, 0, 0, 0, 7);
 
 -- --------------------------------------------------------
 
@@ -761,7 +748,6 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`pid`, `cid`, `prev_reading`, `cur_reading`, `read_date`, `paid_date`, `fee_rebate`, `discount`, `remark`, `amount`, `client_dues`, `total`, `grand_total`, `dues_return`, `previous_return`, `new_dues`) VALUES
-(20, 2, 494, 500, '2077-10-06', '2077-10-21', '-2.00', '0.00', '8 dues\r\n', '50.00', 0, '48.00', '48.00', '-8.00', '0.00', '0.00'),
 (22, 5, 49, 500, '2077-09-01', '2077-10-21', '248.16', '0.00', '', '3102.00', 0, '3350.16', '3350.16', '0.00', '0.00', '350.00'),
 (23, 5, 500, 900, '2077-10-02', '2077-10-21', '0.00', '0.00', '', '2745.00', 0, '2745.00', '2745.00', '0.00', '0.00', '245.00'),
 (26, 12, 400, 515, '2077-08-02', '2077-10-21', '150.00', '0.00', '', '750.00', 0, '900.00', '900.00', '0.00', '0.00', '50.00'),
@@ -892,7 +878,7 @@ ALTER TABLE `client_dues`
 -- AUTO_INCREMENT for table `donation`
 --
 ALTER TABLE `donation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `meter`
@@ -904,13 +890,13 @@ ALTER TABLE `meter`
 -- AUTO_INCREMENT for table `new_charge`
 --
 ALTER TABLE `new_charge`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `owner_transfer`
 --
 ALTER TABLE `owner_transfer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -922,7 +908,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `replace_charge`
 --
 ALTER TABLE `replace_charge`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -938,37 +924,37 @@ ALTER TABLE `users`
 -- Constraints for table `client_dues`
 --
 ALTER TABLE `client_dues`
-  ADD CONSTRAINT `client_dues_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `client` (`id`);
+  ADD CONSTRAINT `client_dues_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `client` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `meter`
 --
 ALTER TABLE `meter`
-  ADD CONSTRAINT `meter_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `client` (`id`);
+  ADD CONSTRAINT `meter_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `client` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `new_charge`
 --
 ALTER TABLE `new_charge`
-  ADD CONSTRAINT `new_charge_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `client` (`id`);
+  ADD CONSTRAINT `new_charge_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `client` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `owner_transfer`
 --
 ALTER TABLE `owner_transfer`
-  ADD CONSTRAINT `owner_transfer_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `client` (`id`);
+  ADD CONSTRAINT `owner_transfer_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `client` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `payment`
 --
 ALTER TABLE `payment`
-  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `client` (`id`);
+  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `client` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `replace_charge`
 --
 ALTER TABLE `replace_charge`
-  ADD CONSTRAINT `replace_charge_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `client` (`id`);
+  ADD CONSTRAINT `replace_charge_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `client` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
