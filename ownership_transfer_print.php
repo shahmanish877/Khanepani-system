@@ -37,13 +37,12 @@
 
 <button class="btn print_btn mt-5"  onclick="printDiv()">Print</button> 
 
-
 	<div id="printableTable">
-			<div class="logo">
-				<img src="images/logo.png" alt="">
-			</div>
-
 			<div class="title print">
+				<div class="logo">
+					<img src="images/logo.png" alt="">
+				</div>
+
 				<p class="minititle">"फोहर पानी रोगको खानी, छोपेर राखौं खानेपानी"</p>
 				<p class="print_title">पानवारी खानेपानी उपभोग्ता तथा सरसफाई समिति </p>
 				<p class="minititle">धरान -६, पानवारी, सुनसरी </p>

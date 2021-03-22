@@ -47,7 +47,7 @@ if(mysqli_num_rows($result) > 0)
 						$output.= '<a href="?page=meter_update&mid='.$d['mid'].'&cid='.$d['cid'].'">
 						Update |
 						</a> 
-						<a onclick="return confirm(\'Do you want to delete?\');" href="?page=meter&del_id=<?php echo $d[\'mid\']; ?>">
+						<a onclick="return confirm(\'Do you want to delete?\');" href="?page=meter&del_id='.$d['mid'].'">
 							Delete
 						</a> 		
 						'; 

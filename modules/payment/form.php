@@ -349,7 +349,7 @@ function ajax_function(){
         });
 
 
-		setTimeout('read_upto()',50);
+		setTimeout('read_upto()', 200);
 	}
 
 $(document).on("change", "#cust_name", function () {

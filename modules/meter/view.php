@@ -26,7 +26,7 @@ global $total_pages;
 		}
 	
  		else if($_GET['op']=='delete'){
-			echo "<h4 class='danger'> Client successfully deleted </h4>";			
+			echo "<h4 class='danger'> Reading successfully deleted </h4>";			
 		}
 	}
  ?>

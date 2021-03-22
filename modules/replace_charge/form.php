@@ -40,7 +40,9 @@ if(isset($_GET['edit_id']))
 					</select>
 
 				<?php } ?>
-			
+				
+				<br>
+
 				<label >Date: </label>
 				<input type="text" name="paid_date" autocomplete="off" id="nepaliDate5" class="nepali-calendar form-controlled" value="<?php echo $s['paid_date']; ?>" required>
 
