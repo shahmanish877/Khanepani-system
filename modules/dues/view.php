@@ -27,7 +27,7 @@ global $total_pages;
 			unset($_SESSION['error_msg']);
 		}
 		else if($_GET['op']=='delete'){
-			echo "<h4 class='danger'> Client successfully deleted </h4>";			
+			echo "<h4 class='danger'> Client Dues successfully deleted </h4>";			
 		}
 	}
  ?>

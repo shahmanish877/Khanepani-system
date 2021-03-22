@@ -5,8 +5,11 @@
 	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="nepali.datepicker.v2.2.min.css" />
-	<link rel="stylesheet" type="text/css" href="style.css">
+	
+    <!--select2 css -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
  
+	<link rel="stylesheet" type="text/css" href="style.css">
         
 <?php
 
@@ -62,4 +65,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
+<!-- Select2 JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    	 $("#cust_name").select2();
+
+    });
+</script>
 </html>
