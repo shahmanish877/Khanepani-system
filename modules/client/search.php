@@ -24,7 +24,7 @@ if(isset($_POST["query"]))
 {
 	$search = mysqli_real_escape_string($con, $_POST["query"]);
 	$query = "
-	SELECT * FROM client WHERE name LIKE '%".$search."%' ORDER BY name";
+	SELECT * FROM client WHERE name LIKE '%".$search."%' OR meter LIKE '%".$search."%' ORDER BY name";
 }else{
 	$query = "SELECT * FROM client LIMIT $offset, $no_of_records_per_page";
 }

@@ -40,6 +40,9 @@ global $dues;
 include_once("modules/dues/function.php");
 $dues = new DuesModel();
 
+global $advance;
+include_once("modules/advance/function.php");
+$advance = new AdvModel();
 
 
 class Controller
@@ -54,6 +57,7 @@ class Controller
 		global $replace_charge;
 		global $donation;
 		global $dues;
+		global $advance;
 		global $ownership_transfer;
 
 	switch($_REQUEST['page'])
@@ -341,6 +345,43 @@ class Controller
 					include_once("modules/dues/update_form.php");
 					break;
 
+					
+				case 'advance_form':
+					if(isset($_POST['cid']) && trim($_POST['cid']) != '')
+					{
+
+						if(trim($_POST['id']) == '')
+						{
+							$advance->insert($_POST);					
+						}
+
+						header('Location: index.php?page=advance');
+						
+
+					}				
+					include_once("modules/advance/form.php");
+					break;
+
+				case 'advance':
+					if(isset($_GET['del_id']))
+					{
+						
+						$advance->delete($_GET['del_id']);	
+						header('Location: index.php?page=advance&op=delete');
+					}
+					include_once("modules/advance/view.php");
+					break;
+
+
+		
+				case 'advance_update':
+					if(isset($_POST['id']) && trim($_POST['id']) != '')
+					{
+						$advance->update($_POST);		
+						header('Location: index.php?page=advance&op=update');					
+					}
+					include_once("modules/advance/update_form.php");
+					break;
 
 
 				default:

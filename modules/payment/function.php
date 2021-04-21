@@ -84,9 +84,6 @@
 				}
 			}
 
-
-
-
 			$paid_date = $d['paid_date1'];
 			$fee = $d['fee1'];
 			$amount = $d['amount1'];
@@ -116,8 +113,10 @@
 			
 
 			$dues_insert ="INSERT INTO client_dues(cid, amount,dues_date,status) VALUE( $cid, $new_dues,'$paid_date','unpaid' )";
+			
+			$advance_insert ="INSERT INTO client_advance(cid, amount, adv_date,status) VALUE( $cid, $remaining_return,'$paid_date','unpaid' )";
 
-
+			$advance_clear = "UPDATE client_advance SET status='paid' WHERE cid=$cid AND status='unpaid' AND amount=".$previous_return;
 
 			if(mysqli_query($con, $sql)){
 				
@@ -138,17 +137,21 @@
                         $_SESSION['error_msg'] = "Error during clearing dues : " . $con->error ;
 					}
 
-
-
 				}else if($d['dues_clear']=='no'){
-
 						$_SESSION['success_msg'] = "Payment successfully saved";
 					}
 				
-				if($new_dues!=0)
+				if($new_dues!=0){
 					mysqli_query($con, $dues_insert);
-			
+				}
+				if($remaining_return!=0){
+					mysqli_query($con, $advance_insert);
+				}
+				if($previous_return!=0){
+					mysqli_query($con, $advance_clear);
+				}
 
+			
 			}else{
                 $_SESSION['error_msg'] = "Error during payment : " . $con->error ;
 			}

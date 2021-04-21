@@ -11,6 +11,7 @@
 		<a href="?page=ownership_transfer"> <li class="sublink"> Ownership Transfer </li> </a>
 		<a href="?page=donation"> <li class="sublink"> Donation </li> </a>
 		<a href="?page=dues"> <li class="sublink"> Client Dues </li> </a>
+		<a href="?page=advance"> <li class="sublink"> Client Advance </li> </a>
 
 
 		<li class="disabled"> Reports  </li> 

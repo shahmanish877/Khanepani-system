@@ -11,7 +11,7 @@ global $total_pages;
 
 <a href="?page=client_form" class="btn">Add New Client</a>
 
-<input type="text" class="form-control search" name="search" id="search" placeholder="Search with client name">
+<input type="text" class="form-control search" name="search" id="search" placeholder="Search with client name or meter">
 
 <?php 
 	if( isset($_SESSION) ){

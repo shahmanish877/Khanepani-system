@@ -132,7 +132,7 @@ $client = $client->get_for_reading();
 
 			
 				
-				<label>Previous Return: </label>
+				<label>Previous Return / Advance: </label>
 				<input type="text" id="dues_return" class="form-controlled" disabled>
 				<input type="hidden" name="dues_return" id="dues_return1" class="form-controlled" >
 
@@ -169,7 +169,7 @@ $client = $client->get_for_reading();
 				<label>To Return: </label>
 				<input type="text" name="to_return" id="to_return" class="form-controlled" disabled>
 
-				<label>Return Remaining: </label>
+				<label>Return Remaining / New Advance: </label>
 				<input type="number" name="remaining_return" id="remaining_return" class="form-controlled" step="any">
 
 				<label>New Dues: </label>
@@ -339,6 +339,14 @@ function ajax_function(){
                 	$("#client_dues").val(response.client_dues);
                 	$("#client_dues1").val(response.client_dues);
                 }
+ 				if(response.client_advance==null){
+                	$("#dues_return").val(0);
+                	$("#dues_return1").val(0);
+                }else{
+                	$("#dues_return").val(response.client_advance);
+                	$("#dues_return1").val(response.client_advance);
+                }
+                
             } else {
                 alert(status.message);
             }

@@ -102,6 +102,17 @@ else
 	$client_dues = 0;
 
 
+$sql = "SELECT * FROM client_advance where cid='{$id}' AND status='unpaid'";
+
+$rs = mysqli_query($con, $sql);
+
+$row = mysqli_fetch_array($rs);
+
+if($row)
+	$client_advance = $row['amount'];
+else
+	$client_advance = 0;
+
 
 
    echo json_encode(array("status" => true, 
@@ -109,6 +120,7 @@ else
 						   	"read_date"=>$read_date,
 						   	"reading_from"=> $reading_from,
 						   	"client_dues"=> $client_dues,
+						   	"client_advance"=> $client_advance,
 						   	"count"=>$count
 						  )
 					);
