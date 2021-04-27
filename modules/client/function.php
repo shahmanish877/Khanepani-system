@@ -37,7 +37,7 @@
 	        //     echo $row['name'].'<br';
 	        // }
 
-			$sql = "SELECT * FROM client LIMIT $offset, $no_of_records_per_page";
+			$sql = "SELECT * FROM client Order By meter LIMIT $offset, $no_of_records_per_page";
 			$rs = mysqli_query($con, $sql);
 			$final = array();
 			while($row = mysqli_fetch_assoc($rs))
