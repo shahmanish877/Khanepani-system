@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2021 at 05:39 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.4.16
+-- Generation Time: Feb 17, 2021 at 07:42 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -615,14 +615,6 @@ INSERT INTO `client` (`id`, `name`, `phone`, `joinned`, `gharnum`, `area`, `mete
 (591, 'yeshoda chapagain', 9878794118, '2072-10-19', '-', '1/36', '1037', 'Bagaichha tol', '-', '-', '-', '-'),
 (592, 'pramila poudel', 9856321547, '2072-10-07', '-', '3/26', '3027', 'saraswoti chowk', '-', '-', '-', '-'),
 (593, 'dhana maya tamang', 9856487895, '2072-10-15', '-', '3/41', '3042', 'saraswoti chowk', '-', '-', '-', '-');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `client_advance`
---
--- Error reading structure for table khanepani.client_advance: #1932 - Table 'khanepani.client_advance' doesn't exist in engine
--- Error reading data for table khanepani.client_advance: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `khanepani`.`client_advance`' at line 1
 
 -- --------------------------------------------------------
 
