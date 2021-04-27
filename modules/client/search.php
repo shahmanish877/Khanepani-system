@@ -26,7 +26,7 @@ if(isset($_POST["query"]))
 	$query = "
 	SELECT * FROM client WHERE name LIKE '%".$search."%' OR meter LIKE '%".$search."%' ORDER BY name";
 }else{
-	$query = "SELECT * FROM client LIMIT $offset, $no_of_records_per_page";
+	$query = "SELECT * FROM client Order by meter LIMIT $offset, $no_of_records_per_page";
 }
 $result = mysqli_query($con, $query);
 if(mysqli_num_rows($result) > 0)
