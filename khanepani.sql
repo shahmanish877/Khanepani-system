@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2021 at 05:39 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.4.16
+-- Generation Time: Jun 21, 2023 at 05:36 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,14 +40,14 @@ CREATE TABLE `client` (
   `mother` varchar(30) DEFAULT NULL,
   `grandfather` varchar(50) DEFAULT NULL,
   `remark` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `client`
 --
 
 INSERT INTO `client` (`id`, `name`, `phone`, `joinned`, `gharnum`, `area`, `meter`, `address`, `father`, `mother`, `grandfather`, `remark`) VALUES
-(3, 'Ram Bahadur', 9804007723, '2072-02-02', '-', '0', '3', 'Bagaichha tol', 'chandra bahadur magar', '-', '-', '-'),
+(3, 'Fulmaya Karki', 9804007723, '2072-02-02', '-', '0', '3', 'Bagaichha tol', 'chandra bahadur magar', '-', '-', '-'),
 (4, 'Gokul Ghimire', 9842056969, '2073-03-04', '-', '0', '4', 'school dada', 'khyamraj ghimire', '---', '-', '-'),
 (5, 'Mamata chahar', 9829392061, '2074-05-02', '-', '0', '5', 'ghopali tol', 'juwalsingh darji', '-', '-', '-'),
 (6, 'Sarita subba', 9842208855, '2072-01-02', '-', '0', '6', 'school dada', '-', '-', '-', '-'),
@@ -621,8 +621,21 @@ INSERT INTO `client` (`id`, `name`, `phone`, `joinned`, `gharnum`, `area`, `mete
 --
 -- Table structure for table `client_advance`
 --
--- Error reading structure for table khanepani.client_advance: #1932 - Table 'khanepani.client_advance' doesn't exist in engine
--- Error reading data for table khanepani.client_advance: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `khanepani`.`client_advance`' at line 1
+
+CREATE TABLE `client_advance` (
+  `id` int(11) NOT NULL,
+  `cid` int(11) NOT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `status` text NOT NULL,
+  `adv_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `client_advance`
+--
+
+INSERT INTO `client_advance` (`id`, `cid`, `amount`, `status`, `adv_date`) VALUES
+(0, 3, 50.00, 'unpaid', '2080-03-05');
 
 -- --------------------------------------------------------
 
@@ -636,18 +649,19 @@ CREATE TABLE `client_dues` (
   `amount` decimal(10,2) NOT NULL,
   `status` varchar(10) NOT NULL DEFAULT 'unpaid',
   `dues_date` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `client_dues`
 --
 
 INSERT INTO `client_dues` (`id`, `cid`, `amount`, `status`, `dues_date`) VALUES
-(16, 3, '85.00', 'unpaid', '2077-10-21'),
-(17, 5, '350.00', 'unpaid', '2077-10-21'),
-(18, 5, '245.00', 'unpaid', '2077-10-21'),
-(25, 52, '33.20', 'unpaid', '2077-11-03'),
-(26, 7, '9595.00', 'unpaid', '2077-11-03');
+(16, 3, 85.00, 'unpaid', '2077-10-21'),
+(17, 5, 350.00, 'unpaid', '2077-10-21'),
+(18, 5, 245.00, 'unpaid', '2077-10-21'),
+(25, 52, 33.20, 'unpaid', '2077-11-03'),
+(26, 7, 9595.00, 'unpaid', '2077-11-03'),
+(27, 4, 80.00, 'unpaid', '2080-03-05');
 
 -- --------------------------------------------------------
 
@@ -661,7 +675,7 @@ CREATE TABLE `donation` (
   `amount` int(11) NOT NULL,
   `received_date` date NOT NULL,
   `remarks` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -675,7 +689,7 @@ CREATE TABLE `meter` (
   `reading` varchar(11) NOT NULL,
   `read_date` varchar(10) NOT NULL,
   `status` varchar(10) NOT NULL DEFAULT 'unpaid'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `meter`
@@ -692,7 +706,16 @@ INSERT INTO `meter` (`mid`, `cid`, `reading`, `read_date`, `status`) VALUES
 (50, 12, '515', '2077-08-02', 'paid'),
 (52, 12, '750', '2077-09-02', 'unpaid'),
 (53, 12, '900', '2077-10-07', 'paid'),
-(55, 52, '1160', '2077-11-03', 'paid');
+(55, 52, '1160', '2077-11-03', 'paid'),
+(56, 3, '234', '2080-03-04', 'unpaid'),
+(57, 4, '56', '2080-03-05', 'unpaid'),
+(58, 10, '6', '2080-03-05', 'unpaid'),
+(59, 11, '8', '2080-03-05', 'unpaid'),
+(60, 12, '15', '2080-03-05', 'unpaid'),
+(61, 13, '15', '2080-03-07', 'unpaid'),
+(62, 15, '20', '2080-03-07', 'unpaid'),
+(63, 16, '26', '2080-03-07', 'unpaid'),
+(64, 17, '28', '2080-03-07', 'unpaid');
 
 -- --------------------------------------------------------
 
@@ -709,7 +732,7 @@ CREATE TABLE `new_charge` (
   `filter` int(11) NOT NULL DEFAULT 0,
   `misc` int(11) NOT NULL DEFAULT 0,
   `total` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -724,7 +747,19 @@ CREATE TABLE `owner_transfer` (
   `new_owner` text NOT NULL,
   `charge` int(11) NOT NULL,
   `paid_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `owner_transfer`
+--
+
+INSERT INTO `owner_transfer` (`id`, `cid`, `old_owner`, `new_owner`, `charge`, `paid_date`) VALUES
+(1, 5, 'Mamata chahar', 'chahar Mamata', 500, '2023-06-20'),
+(2, 5, 'Mamata chahar', '3 chahar Mamat4a 5', 500, '2023-06-20'),
+(3, 4, 'Gokul Ghimire', '3 chahar Mamat4a 5', 500, '2023-06-20'),
+(6, 4, 'Gokul Ghimire', '3 chahar Mamat4a 5', 500, '2023-06-20'),
+(7, 4, '3 chahar Mamat4a 5', 'Gokul Ghimire', 500, '2023-06-20'),
+(8, 3, '3 chahar Mamat4a 5', 'Gokul Ghimire', 500, '2023-06-20');
 
 -- --------------------------------------------------------
 
@@ -749,20 +784,20 @@ CREATE TABLE `payment` (
   `dues_return` decimal(10,2) NOT NULL DEFAULT 0.00,
   `previous_return` decimal(10,2) NOT NULL,
   `new_dues` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payment`
 --
 
 INSERT INTO `payment` (`pid`, `cid`, `prev_reading`, `cur_reading`, `read_date`, `paid_date`, `fee_rebate`, `discount`, `remark`, `amount`, `client_dues`, `total`, `grand_total`, `dues_return`, `previous_return`, `new_dues`) VALUES
-(22, 5, 49, 500, '2077-09-01', '2077-10-21', '248.16', '0.00', '', '3102.00', 0, '3350.16', '3350.16', '0.00', '0.00', '350.00'),
-(23, 5, 500, 900, '2077-10-02', '2077-10-21', '0.00', '0.00', '', '2745.00', 0, '2745.00', '2745.00', '0.00', '0.00', '245.00'),
-(26, 12, 400, 515, '2077-08-02', '2077-10-21', '150.00', '0.00', '', '750.00', 0, '900.00', '900.00', '0.00', '0.00', '50.00'),
-(28, 12, 515, 900, '2077-10-07', '2077-10-21', '-105.60', '0.00', '', '2640.00', 67, '2534.40', '2601.40', '0.00', '0.00', '0.00'),
-(35, 10, 580, 606, '2077-09-02', '2077-11-02', '10.16', '0.00', '', '127.00', 0, '137.16', '140.00', '2.84', '0.00', '0.00'),
-(36, 10, 606, 900, '2077-10-07', '2077-11-03', '0.00', '0.00', '', '2003.00', 255, '2000.16', '2000.00', '0.00', '2.84', '255.16'),
-(37, 52, 1110, 1160, '2077-11-03', '2077-11-03', '-11.80', '0.00', '', '295.00', 0, '283.20', '250.00', '0.00', '0.00', '33.20');
+(22, 5, 49, 500, '2077-09-01', '2077-10-21', 248.16, 0.00, '', 3102.00, 0, 3350.16, 3350.16, 0.00, 0.00, 350.00),
+(23, 5, 500, 900, '2077-10-02', '2077-10-21', 0.00, 0.00, '', 2745.00, 0, 2745.00, 2745.00, 0.00, 0.00, 245.00),
+(26, 12, 400, 515, '2077-08-02', '2077-10-21', 150.00, 0.00, '', 750.00, 0, 900.00, 900.00, 0.00, 0.00, 50.00),
+(28, 12, 515, 900, '2077-10-07', '2077-10-21', -105.60, 0.00, '', 2640.00, 67, 2534.40, 2601.40, 0.00, 0.00, 0.00),
+(35, 10, 580, 606, '2077-09-02', '2077-11-02', 10.16, 0.00, '', 127.00, 0, 137.16, 140.00, 2.84, 0.00, 0.00),
+(36, 10, 606, 900, '2077-10-07', '2077-11-03', 0.00, 0.00, '', 2003.00, 255, 2000.16, 2000.00, 0.00, 2.84, 255.16),
+(37, 52, 1110, 1160, '2077-11-03', '2077-11-03', -11.80, 0.00, '', 295.00, 0, 283.20, 250.00, 0.00, 0.00, 33.20);
 
 -- --------------------------------------------------------
 
@@ -778,7 +813,7 @@ CREATE TABLE `replace_charge` (
   `filter` int(11) NOT NULL,
   `misc` int(11) NOT NULL,
   `total` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -791,7 +826,7 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -810,6 +845,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
 ALTER TABLE `client`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `meter` (`meter`);
+
+--
+-- Indexes for table `client_advance`
+--
+ALTER TABLE `client_advance`
+  ADD KEY `client_cid_adv` (`cid`);
 
 --
 -- Indexes for table `client_dues`
@@ -880,7 +921,7 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT for table `client_dues`
 --
 ALTER TABLE `client_dues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `donation`
@@ -892,7 +933,7 @@ ALTER TABLE `donation`
 -- AUTO_INCREMENT for table `meter`
 --
 ALTER TABLE `meter`
-  MODIFY `mid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `mid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `new_charge`
@@ -904,7 +945,7 @@ ALTER TABLE `new_charge`
 -- AUTO_INCREMENT for table `owner_transfer`
 --
 ALTER TABLE `owner_transfer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -927,6 +968,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `client_advance`
+--
+ALTER TABLE `client_advance`
+  ADD CONSTRAINT `client_cid_adv` FOREIGN KEY (`cid`) REFERENCES `client` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `client_dues`
